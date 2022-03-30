@@ -10,13 +10,16 @@ import java.util.*;
  * @author Grant
  */
 public class InClass_3_30 {
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     public static void factorizer(){
         // Create map to hold factors, promt
         int input;
         HashSet<Integer> set =  new HashSet<Integer>();
         
         // Prompt the user for input
-        input = prompt();
+        input = promptFactorizer();
         
         // Obtain all factors
         set = factors(input);
@@ -66,7 +69,7 @@ public class InClass_3_30 {
     }
     
     
-    public static int prompt(){
+    public static int promptFactorizer(){
         // Create a scanner object
         Scanner scan = new Scanner(System.in);
         
@@ -96,6 +99,7 @@ public class InClass_3_30 {
         // Print the factors of the target number
         System.out.print("\nIt has a total of " + set.size()+ " factors which "
                 + "are: \n");
+        
         for(int elem : set){
             if(elem != target)
                 System.out.print(elem + "\n");
@@ -109,9 +113,92 @@ public class InClass_3_30 {
         String primeStatus = isPrime(set, target) ? " is " : " is not ";
         System.out.print(target + primeStatus + "a prime number.\n");
     }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    public static void interestCalculator(){
+        // Prompt user for values
+        double[] initial = promptInterest();
+        
+        // Print out results on a yearly basis
+        for(int i = 0; i < initial[2]; i++){
+            // Obtain yearly results
+            double[] yearly = calculations(initial);
+            
+            // Print out yearly values
+            System.out.print("\n\nYear " + (i + 1) + ":");
+            System.out.format("\nBegan with: $%.2f", initial[1]);
+            System.out.format("\nEarned: $%.2f", yearly[0]);
+            System.out.format("\nEnded with: $%.2f",yearly[1]);
+            
+            // Re-assign inital values
+            initial[1] = yearly[1];
+        }
+        
+    }
+    
+    
+    public static double[] promptInterest(){
+        // Create a scanner object to read in user input
+        Scanner scan = new Scanner(System.in);
+        
+        // Create array to hold user input
+        double[] input = new double[3];
+        
+        // Continuously prompt user until the correct input is provided
+        while(true){
+            try{
+                System.out.print("What is the annual interest rate: ");
+                input[0] = scan.nextDouble();
+                System.out.print("\nWhat is the principal ammout: ");
+                input[1] = scan.nextDouble();
+                System.out.print("\nHow many years will this money stay in the fund: ");
+                input[2] = scan.nextDouble();
+                break;
+            }catch(Exception e){
+                System.out.print("\nINPUT ERROR!");
+            }
+        }
+        
+        // return array containing inputs
+        return input;
+    }
+    
+    
+    
+    public static double[] calculations(double[] arr){
+        // Create variable to hold earned ammout, ending ammount
+        double earned = 0, ammount = arr[1];
+        
+        // Create array to hold results
+        double[] results = new double[2];
+               
+        // Calculate the ending ammount over four quarters
+        double qRate = arr[0] / 4;
+        for(int i = 0; i < 4; i++){
+            ammount = ammount * (1 + (qRate / 100));
+        }
+        
+        // Subtract inital from ending to obtain earned
+        earned = ammount - arr[1];
+        
+        // Set array values
+        results[0] = earned;
+        results[1] = ammount;
+        
+        return results;
+    }
+    
+    
+    //
+    
+    
+    
+    
     
     
     public static void main(String[] args){
-        factorizer();
+        interestCalculator();
+        //factorizer();
     }
 }
