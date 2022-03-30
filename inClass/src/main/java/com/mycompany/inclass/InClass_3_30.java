@@ -188,9 +188,93 @@ public class InClass_3_30 {
         
         return results;
     }
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
+    public static void luckySevens(){
+        // Prompt user for money
+        int money = promptSevens();
+        
+        // Play the game
+        int[] vals = playGame(money);
+        
+        // Print output
+        System.out.println("You are broke after " + vals[0] + " rolls.");
+        System.out.println("You should have quit after " + vals[2] +" rolls "
+                + "when you had " + vals[1] +".");
+        
+    }
+    
+    public static int rollOneDice(){
+        // Create random object with random seed based on ms
+        Random rand = new Random();
+        
+        // Generate random number between 1 - 6
+        int num = rand.nextInt(5) + 1;
+        
+        return num;
+    }
+    
+    public static int rollTwoDice(){
+        // Roll first die
+        int first = rollOneDice();
+        
+        // Roll second dice 
+        int second = rollOneDice();
+        
+        // Return sum of the two
+        return first + second;
+    }
     
     
-    //
+    public static int promptSevens(){
+        // Create a scanner object
+        Scanner scan = new Scanner(System.in);
+        
+        // Create variable to hold input
+        int input;
+        
+        // Continuously prompt user until input is valid
+        while(true){
+            try{
+                // Propmt the user for an integer
+                System.out.print("How much money do you want to wager: ");
+                input = scan.nextInt();
+                break;
+            }catch(Exception e){
+                System.out.println("INPUT ERROR!");
+            }
+        }
+        
+        return input;        
+    }
+    
+    public static int[] playGame(int initial){
+        // Declare array to hold game stats
+        // 0 = rolls taken, 1 - max ammount, 2 - max roll num at max ammount
+        int[] vals = new int[3];
+        
+        // Run loop until the money runs out
+        while(initial > 0){
+            // Roll two dice
+            int roll = rollTwoDice();
+            
+            // Subtract or add game outcome
+            initial = (roll == 7) ? initial + 4 : initial - 1;
+            
+            // Iterate roll
+            vals[0]++;
+            
+            // Check for max value
+            if(initial > vals[1]){
+                vals[1] = initial;
+                vals[2] = vals[0];
+            }
+        }
+        
+        return vals;
+        
+    }
     
     
     
@@ -198,7 +282,8 @@ public class InClass_3_30 {
     
     
     public static void main(String[] args){
-        interestCalculator();
+        luckySevens();
+        //interestCalculator();
         //factorizer();
     }
 }
