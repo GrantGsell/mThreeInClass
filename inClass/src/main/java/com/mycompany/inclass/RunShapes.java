@@ -11,8 +11,8 @@ public class RunShapes {
         double perimeter = shape.getPerimeter();
         
         // Print the data
-        System.out.println("\nThe given " + name + " has- \nAn area of: " + area + 
-                "\nAnd a perimeter of: " + perimeter + "\n");
+        System.out.format("\nThe given %s has- \nAn area of: %.3f\nAnd a "
+                + "perimeter of: %.3f\n", name, area, perimeter);
         
         
     }

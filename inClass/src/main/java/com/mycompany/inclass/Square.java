@@ -5,20 +5,23 @@ package com.mycompany.inclass;
  * @author Grant
  */
 public class Square extends Shape{
-    double sideA, sideB;
+    // fields
+    double sideA;
     
-    public Square(double sideA, double sideB){
+    // Square constructor
+    public Square(double sideA){
         this.sideA = sideA;
-        this.sideB = sideB;
     }
     
+    // Area calcluation
     @Override
     public double getArea(){
-        return sideA * sideB;
+        return sideA * sideA;
     }
     
+    // Perimeter calculation
     @Override
     public double getPerimeter(){
-        return sideA * 2 + sideB * 2;
+        return sideA * 2 + sideA * 2;
     }
 }
