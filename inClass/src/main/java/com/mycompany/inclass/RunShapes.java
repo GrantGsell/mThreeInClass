@@ -20,7 +20,7 @@ public class RunShapes {
     
     public static void main(String[] args){
         // Create objects
-        Square square = new Square(2, 2);
+        Square square = new Square(2);
         Rectangle rect = new Rectangle(3, 4);
         Triangle tri = new Triangle(3, 4, 5);
         Circle circ = new Circle(3);
