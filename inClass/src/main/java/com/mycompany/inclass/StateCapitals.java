@@ -7,7 +7,7 @@ import java.util.*;
 public class StateCapitals {
     // HashMap field
     public static Map<String, String> states = new HashMap<>();
-    
+      
     // Populate hashmap
     public static void populate(){
         states.put("Pennsylvania", "Philadelphia");
