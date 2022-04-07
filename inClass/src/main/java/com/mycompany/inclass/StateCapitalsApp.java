@@ -115,6 +115,32 @@ public class StateCapitalsApp {
     }
     
     
+    /*
+     * Prompts the user for input based on the input text.
+     * 
+     * @param a String to promt the user for data
+     * @return a String denoting the user input
+     */
+    public static int prompt(String text){
+        // Create a new scanner object, input variable
+        Scanner scan = new Scanner(System.in);
+        int input;
+        
+        // Continuously prompt user until the correct input is given
+        while(true){
+            // Prompt the user based on text variable
+            try{
+                System.out.print("\n" + text);
+                input = scan.nextInt();
+                break;
+            }catch(Exception e){
+                System.out.println("\nERROR: Incorrect Input.");        
+            }
+        }
+        return input;
+    }
+    
+    
     // Main method, point of entry into java class
     public static void main(String[] args){
         // Create new object

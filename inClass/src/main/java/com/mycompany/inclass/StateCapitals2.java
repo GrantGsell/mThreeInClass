@@ -1,5 +1,4 @@
 package com.mycompany.inclass;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.*;
