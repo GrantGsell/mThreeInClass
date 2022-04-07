@@ -1,10 +1,7 @@
 package classroster.controller;
 import classroster.dao.ClassRosterDao;
-import classroster.dao.ClassRosterDaoException;
-import classroster.dao.ClassRosterDaoFileImpl;
+import classroster.dao.ClassRosterPersistenceException;
 import classroster.ui.ClassRosterView;
-import classroster.ui.UserIO;
-import classroster.ui.UserIOConsoleImpl;
 import classroster.dto.Student;
 import java.util.List;
 
@@ -55,7 +52,7 @@ public class ClassRosterController {
                 
             }
             exitMessage();
-        }catch(ClassRosterDaoException e){
+        }catch(ClassRosterPersistenceException e){
             view.displayErrorMessage(e.getMessage());
         }
     }
@@ -66,7 +63,7 @@ public class ClassRosterController {
     }
     
     
-    private void createStudent() throws ClassRosterDaoException {
+    private void createStudent() throws ClassRosterPersistenceException {
         view.displayCreateStudentBanner();
         Student newStudent = view.getNewStudentInfo();
         dao.addStudent(newStudent.getStudentId(), newStudent);
@@ -74,14 +71,14 @@ public class ClassRosterController {
     }
     
     
-    private void listStudents() throws ClassRosterDaoException {
+    private void listStudents() throws ClassRosterPersistenceException {
         view.displayDisplayAllBanner();
         List<Student> studentList = dao.getAllStudents();
         view.displayStudentList(studentList);
     }
     
     
-    private void viewStudent() throws ClassRosterDaoException {
+    private void viewStudent() throws ClassRosterPersistenceException {
         view.displayDisplayStudentBanner();
         String studentId = view.getStudentIdChoice();
         Student student = dao.getStudent(studentId);
@@ -89,7 +86,7 @@ public class ClassRosterController {
     }
     
     
-    private void removeStudent() throws ClassRosterDaoException {
+    private void removeStudent() throws ClassRosterPersistenceException {
         view.displayRemoveStudentBanner();
         String studentId = view.getStudentIdChoice();
         Student removedStudent = dao.removeStudent(studentId);
