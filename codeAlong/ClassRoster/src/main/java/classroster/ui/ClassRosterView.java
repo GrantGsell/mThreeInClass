@@ -88,6 +88,10 @@ public class ClassRosterView {
     public void displayRemoveStudentBanner () {
         io.print("=== Remove Student ===");
     }
+    
+    public void displayRemoveStudentSuccessBanner () {
+        io.print("=== Successfully Remove Student ===");
+    }
 
     
     public void displayRemoveResult(Student studentRecord) {

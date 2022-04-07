@@ -102,7 +102,7 @@ public class ClassRosterController {
         view.displayRemoveStudentBanner();
         String studentId = view.getStudentIdChoice();
         service.removeStudent(studentId);
-        //view.displayRemoveSuccessBanner();
+        view.displayRemoveSuccessBanner();
     }
     
     private void unknownCommand() {
