@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.inclass.HappyLlamasTest" time="0.149" tests="2" errors="0" skipped="0" failures="1">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.mycompany.inclass.HappyLlamasTest" time="0.049" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\Grant\AppData\Local\Temp\surefire13285034608465981165\surefirebooter2572760923431783584.jar C:\Users\Grant\AppData\Local\Temp\surefire13285034608465981165 2022-04-07T14-11-08_012-jvmRun1 surefire13646203071545220465tmp surefire_015936370987040636369tmp"/>
+    <property name="sun.java.command" value="C:\Users\Grant\AppData\Local\Temp\surefire1438349728606390915\surefirebooter17765729532336132449.jar C:\Users\Grant\AppData\Local\Temp\surefire1438349728606390915 2022-04-08T10-31-34_100-jvmRun1 surefire2647174804735759301tmp surefire_09728911167290431496tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="test" value="com.mycompany.inclass.HappyLlamasTest"/>
     <property name="surefire.test.class.path" value="C:\Users\Grant\Desktop\mThreeInClass\inClass\target\test-classes;C:\Users\Grant\Desktop\mThreeInClass\inClass\target\classes;C:\Users\Grant\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.6.0\junit-jupiter-api-5.6.0.jar;C:\Users\Grant\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\Grant\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\Grant\.m2\repository\org\junit\platform\junit-platform-commons\1.6.0\junit-platform-commons-1.6.0.jar;C:\Users\Grant\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.6.0\junit-jupiter-params-5.6.0.jar;C:\Users\Grant\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.6.0\junit-jupiter-engine-5.6.0.jar;C:\Users\Grant\.m2\repository\org\junit\platform\junit-platform-engine\1.6.0\junit-platform-engine-1.6.0.jar;"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Grant\AppData\Local\Temp\surefire13285034608465981165\surefirebooter2572760923431783584.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Grant\AppData\Local\Temp\surefire1438349728606390915\surefirebooter17765729532336132449.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.2+8-LTS-86"/>
@@ -41,7 +41,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar;C:\Program Files\NetBeans-13\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
     <property name="localRepository" value="C:\Users\Grant\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\Grant\AppData\Local\Temp\"/>
@@ -58,8 +58,8 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testNormalTrampoline10" classname="com.mycompany.inclass.HappyLlamasTest" time="0.079"/>
-  <testcase name="testNormalTrampoline24" classname="com.mycompany.inclass.HappyLlamasTest" time="0.044">
+  <testcase name="testNormalTrampoline10" classname="com.mycompany.inclass.HappyLlamasTest" time="0.028"/>
+  <testcase name="testNormalTrampoline24" classname="com.mycompany.inclass.HappyLlamasTest" time="0.011">
     <failure message="24 Llamas w/ Normal Trampolines should be happy! ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: 24 Llamas w/ Normal Trampolines should be happy! ==> expected: <true> but was: <false>
 	at com.mycompany.inclass.HappyLlamasTest.testNormalTrampoline24(HappyLlamasTest.java:54)
 ]]></failure>

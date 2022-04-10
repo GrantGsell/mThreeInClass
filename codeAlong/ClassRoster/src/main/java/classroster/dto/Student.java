@@ -44,17 +44,17 @@ public class Student {
     public void setCohort(String cohort) {
         this.cohort = cohort;
     }
-    
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.firstName);
-        hash = 89 * hash + Objects.hashCode(this.lastName);
-        hash = 89 * hash + Objects.hashCode(this.studentId);
-        hash = 89 * hash + Objects.hashCode(this.cohort);
+        hash = 53 * hash + Objects.hashCode(this.firstName);
+        hash = 53 * hash + Objects.hashCode(this.lastName);
+        hash = 53 * hash + Objects.hashCode(this.studentId);
+        hash = 53 * hash + Objects.hashCode(this.cohort);
         return hash;
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -76,14 +76,13 @@ public class Student {
         if (!Objects.equals(this.studentId, other.studentId)) {
             return false;
         }
-        if (!Objects.equals(this.cohort, other.cohort)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.cohort, other.cohort);
     }
-    
+
     @Override
     public String toString() {
         return "Student{" + "firstName=" + firstName + ", lastName=" + lastName + ", studentId=" + studentId + ", cohort=" + cohort + '}';
     }
+    
+    
 }
