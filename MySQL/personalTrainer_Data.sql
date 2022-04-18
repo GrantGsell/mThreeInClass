@@ -1,3 +1,4 @@
+use PersonalTrainer;
 -- Activity 1
 SELECT 
 	exerciseId, 
@@ -130,9 +131,10 @@ FROM Goal WHERE GoalId IN(
 );
 
 -- Activity 19 using Joins
- SELECT 
-	w.WorkoutId
+SELECT 
+	w.WorkoutId,
+	goal.Name
 FROM workout AS w
-INNER JOIN workoutGoal AS g ON (w.WorkoutId = g.workoutId)
-INNER JOIN goal ON (goal.GoalId = g.goalId)
+INNER JOIN workoutGoal USING(workoutId)
+INNER JOIN goal USING(goalId)
 WHERE w.Name = "This Is Parkour";
