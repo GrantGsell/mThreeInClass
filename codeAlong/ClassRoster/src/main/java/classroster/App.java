@@ -10,6 +10,8 @@ import classroster.service.ClassRosterServiceLayerImpl;
 import classroster.ui.ClassRosterView;
 import classroster.ui.UserIO;
 import classroster.ui.UserIOConsoleImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  *
@@ -17,6 +19,14 @@ import classroster.ui.UserIOConsoleImpl;
  */
 public class App {
     public static void main(String[] args) {
+        
+        ApplicationContext ctx = 
+           new ClassPathXmlApplicationContext("applicationContext.xml");
+        ClassRosterController controller = 
+           ctx.getBean("controller", ClassRosterController.class);
+        controller.run();
+        
+        /* Old Version of DI
         // Instantiate the UserIO implementation
         UserIO myIo = new UserIOConsoleImpl();
         // Instantiate the View and wire the UserIO implementation into it
@@ -31,6 +41,7 @@ public class App {
         ClassRosterController controller = new ClassRosterController(myService, myView);
         // Kick off the Controller
         controller.run();
+        */
         
         // Old Version
         /*

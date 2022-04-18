@@ -20,7 +20,7 @@ public class ArrayExerciseC {
      * @param nums
      * @return String
      */
-    public String stringThemTogether(int[] nums){
+    public static String stringThemTogether(int[] nums){
         StringBuilder result = new StringBuilder(nums.length);
         for(int elem : nums)
             result.append(elem);

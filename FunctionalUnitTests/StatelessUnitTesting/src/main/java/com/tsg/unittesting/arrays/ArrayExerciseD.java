@@ -22,7 +22,31 @@ public class ArrayExerciseD {
      * @return
      */
     public static int pointFree(double[] numbers){
-        throw new UnsupportedOperationException("Code not yet written...!");
+        // Create result variable
+        int result = Integer.MIN_VALUE;
+        
+        // Iterate through numbers and find the max value
+        for(double elem : numbers)
+            if(result < convertNumber(elem))
+                result = convertNumber(elem);
+        
+        return result;
+    }
+    
+    public static int convertNumber(double val){
+        // Result variable
+        int result = 0;
+        
+        // Convert double to string
+        String valString = Double.toString(val);
+        
+        // Convert String to string witout deciaml
+        valString = valString.replace(".", "");
+        
+        // Convert string to integer
+        result = Integer.parseInt(valString);
+        
+        return result;
     }
     
 }

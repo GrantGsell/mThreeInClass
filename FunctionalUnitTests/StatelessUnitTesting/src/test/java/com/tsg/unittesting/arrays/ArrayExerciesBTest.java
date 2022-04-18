@@ -42,5 +42,17 @@ public class ArrayExerciesBTest {
         assertArrayEquals(result, expectedResult);
     }
     
+    @Test
+    public void testEmpty(){
+        // Create empty test array
+        int[] input = {};
+        
+        // Test the array
+        int[] result = multiplyAll(-1, input);
+        
+        // Assert empty array equals another empty array
+        assertArrayEquals(result, new int[]{});        
+    }
+    
     
 }
