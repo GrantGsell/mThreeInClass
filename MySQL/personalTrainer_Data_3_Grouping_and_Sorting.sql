@@ -68,7 +68,7 @@ HAVING Total > 1000
 ORDER BY lastName, firstName;
 
 
--- Exercise 8 Correct number of rows, wrong count
+-- Exercise 8
 SELECT
 	exercisecategory.Name,
     COUNT(exercise.exerciseCategoryId) AS ExerciseCount
@@ -113,7 +113,7 @@ GROUP BY client.clientId
 ORDER BY ISNULL(GoalCount) DESC, GoalCount;
 
 
--- Exercise 12 WRONG NUMBER Of rows (expected 82, got 64)
+-- Exercise 12 
 SELECT
 	exercise.name AS ExerciseName, 
     unit.name AS UnitName,
@@ -123,7 +123,7 @@ FROM exercise
 INNER JOIN exerciseInstance USING (exerciseId)
 INNER JOIN exerciseInstanceUnitValue USING (exerciseInstanceId)
 INNER JOIN unit USING (unitId)
-GROUP BY exercise.exerciseId
+GROUP BY exercise.exerciseId, unit.unitId
 ORDER BY ExerciseName, UnitName;
 
 
@@ -143,7 +143,7 @@ GROUP BY exercise.exerciseId
 ORDER BY CategoryName, ExerciseName, UnitName;
 
 
--- Exercise 14 -- SLIGHTLY off ages numbers from exercise sheet
+-- Exercise 14 -- SLIGHTLY off ages numbers from exercise sheet, makes sense
 SELECT
 	level.name AS LevelName,
     DATEDIFF(CURDATE(), MAX(client.birthDate)) / 365 AS MinAge,
@@ -165,16 +165,15 @@ GROUP BY Extension;
 
 -- Exercise 16
 SELECT
-	firstName,
-    lastName,
-    workout.name,
-    goal.goalId
-	-- COUNT(goal.goalId) AS NumberClientGoals
+	workout.name,
+	CONCAT(firstName, " ", lastName) AS ClientName,
+	COUNT(workout.workoutId) AS NumberClientGoals
 FROM client
 INNER JOIN clientGoal USING (clientId)
 INNER JOIN goal USING (goalId)
 INNER JOIN workoutGoal USING (goalId)
 INNER JOIN workout USING(workoutId)
--- GROUP BY clientGoal.goalId, workout.name
+GROUP BY client.clientId, workout.workoutId
+HAVING NumberClientGoals > 1
 ORDER BY lastName, firstName;
 
