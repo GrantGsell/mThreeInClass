@@ -159,11 +159,22 @@ GROUP BY LevelName;
 SELECT
 	RIGHT(emailAddress, LOCATE(".", REVERSE(emailAddress)) - 1) AS Extension,
     COUNT(RIGHT(emailAddress, LOCATE(".", REVERSE(emailAddress))) - 1) AS Count
-	-- SUBSTRING(emailAddress, Position("." IN emailAddress)) AS Extension,
-	 -- COUNT(SUBSTRING(emailAddress, Position("." IN emailAddress))) AS Count
 FROM login
 GROUP BY Extension;
 
 
 -- Exercise 16
+SELECT
+	firstName,
+    lastName,
+    workout.name,
+    goal.goalId
+	-- COUNT(goal.goalId) AS NumberClientGoals
+FROM client
+INNER JOIN clientGoal USING (clientId)
+INNER JOIN goal USING (goalId)
+INNER JOIN workoutGoal USING (goalId)
+INNER JOIN workout USING(workoutId)
+-- GROUP BY clientGoal.goalId, workout.name
+ORDER BY lastName, firstName;
 
