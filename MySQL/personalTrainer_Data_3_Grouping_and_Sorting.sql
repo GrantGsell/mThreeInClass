@@ -176,4 +176,3 @@ INNER JOIN workout USING(workoutId)
 GROUP BY client.clientId, workout.workoutId
 HAVING NumberClientGoals > 1
 ORDER BY lastName, firstName;
-
