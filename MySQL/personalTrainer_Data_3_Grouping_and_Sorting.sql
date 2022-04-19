@@ -157,11 +157,13 @@ GROUP BY LevelName;
 
 -- Exercise 15
 SELECT
+	RIGHT(emailAddress, LOCATE(".", REVERSE(emailAddress)) - 1) AS Extension,
+    COUNT(RIGHT(emailAddress, LOCATE(".", REVERSE(emailAddress))) - 1) AS Count
 	-- SUBSTRING(emailAddress, Position("." IN emailAddress)) AS Extension,
 	 -- COUNT(SUBSTRING(emailAddress, Position("." IN emailAddress))) AS Count
 FROM login
 GROUP BY Extension;
 
 
-
 -- Exercise 16
+
