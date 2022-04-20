@@ -3,6 +3,16 @@ DROP DATABASE IF EXISTS hoteldb;
 CREATE DATABASE hoteldb;
 USE hoteldb;
 
+CREATE TABLE guests(
+	guestId int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	guestName varchar(50),
+    address varchar(25),
+    city varchar(30),
+    state char(2),
+    zipcode int,
+    phone varchar(12)
+);
+
 CREATE TABLE roomType(
 	roomType varchar(6) PRIMARY KEY NOT NULL,
     standardOccupancy tinyint,
@@ -34,24 +44,16 @@ CREATE TABLE reservations(
     reservationName varchar(50),
     numberAdults smallint,
 	numberChildren smallint,
-    startDate datetime,
-    endDate datetime,
+    startDate date,
+    endDate date,
     price double,
+    guestId int,
     CONSTRAINT fk_room
 		FOREIGN KEY (roomNumber)
-        REFERENCES room(roomNumber)
+        REFERENCES room(roomNumber),
+	CONSTRAINT fk_guests
+		FOREIGN KEY (guestId)
+        REFERENCES guests(guestId)
 );
 
 
-CREATE TABLE guests(
-	reservationId int PRIMARY KEY NOT NULL,
-	guestName varchar(50),
-    address varchar(25),
-    city varchar(30),
-    state char(2),
-    zipcode tinyint,
-    phone varchar(12),
-    CONSTRAINT fk_reservations 
-		FOREIGN KEY (reservationId) 
-        REFERENCES reservations(reservationId)
-);
